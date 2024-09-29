@@ -62,49 +62,57 @@
 
     <main>
         <h2>1. Inicializar el repositorio</h2>
-        <p>El primer paso es inicializar un nuevo repositorio en Git. Para ello, utiliza el siguiente comando en la terminal dentro de tu carpeta de proyecto:</p>
+        <p>Primero, verifica si el repositorio ya está inicializado. Si el directorio <code>.git</code> existe en tu proyecto, entonces Git ya está inicializado. Si no, utiliza el siguiente comando para inicializarlo:</p>
         <pre>git init</pre>
-        <p>Este comando crea una nueva carpeta oculta <code>.git</code> en tu proyecto, donde Git almacenará la información necesaria para el control de versiones.</p>
-        <img src="images/gh1.png" alt="Inicializar repositorio Git">
+        <p>Esto crea una nueva carpeta oculta <code>.git</code> en tu proyecto para el control de versiones.</p>
+        <img src="images/gh2.png" alt="Inicializar repositorio Git">
 
-        <h2>2. Agregar archivos al repositorio</h2>
-        <p>Una vez inicializado, agrega los archivos que quieres que Git rastree:</p>
+        <h2>2. Crear una nueva rama</h2>
+        <p>Antes de realizar cambios, es recomendable trabajar en una rama separada de la principal. Crea una nueva rama con el siguiente comando:</p>
+        <pre>git checkout -b nombre-rama</pre>
+        <p>Esto creará y cambiará a la nueva rama donde puedes trabajar sin afectar la rama principal.</p>
+        <img src="images/gh6.png" alt="Crear una nueva rama en Git">
+
+        <h2>3. Ver el estado del repositorio</h2>
+        <p>Verifica el estado del repositorio para ver qué archivos han sido modificados o añadidos:</p>
+        <pre>git status</pre>
+        <p>Este comando te muestra el estado de los archivos en tu proyecto, indicando si están listos para ser commit o si necesitan ser añadidos.</p>
+        <img src="images/gh11.png" alt="Ver estado del repositorio con Git Status">
+
+        <h2>4. Agregar archivos al área de preparación</h2>
+        <p>Para agregar los archivos modificados al área de preparación (staging area), utiliza el siguiente comando:</p>
         <pre>git add .</pre>
-        <p>Esto añadirá todos los archivos del proyecto al área de preparación (staging area). Si solo deseas agregar un archivo en específico, usa <code>git add nombre_archivo</code>.</p>
-        <img src="images/gh6.png" alt="Agregar archivos a Git">
+        <p>Este comando agrega todos los archivos modificados. Si solo deseas agregar un archivo específico, usa <code>git add nombre_archivo</code>.</p>
+        <img src="images/gh7.png" alt="Agregar archivos al área de preparación con Git Add">
 
-        <h2>3. Hacer commit</h2>
-        <p>Después de agregar los archivos, el siguiente paso es crear un commit, que representa una "foto" del estado de tu proyecto en ese momento:</p>
+        <h2>5. Crear un commit</h2>
+        <p>Luego de agregar los archivos, guarda los cambios con un commit:</p>
         <pre>git commit -m "Mensaje descriptivo del commit"</pre>
-        <p>Asegúrate de escribir un mensaje claro para identificar qué cambios hiciste en este commit.</p>
-        <img src="ruta-de-tu-imagen-commit.png" alt="Hacer commit en Git">
+        <p>El mensaje del commit debe ser claro para identificar los cambios que se hicieron en esta "foto" del estado de tu proyecto.</p>
+        <img src="images/gh8.png" alt="Crear un commit en Git">
 
-        <h2>4. Subir a GitHub (Push)</h2>
-        <p>Primero, debes vincular tu repositorio local con uno remoto en GitHub. Para ello, usa el siguiente comando:</p>
+        <h2>6. Subir los cambios a GitHub (Push)</h2>
+        <p>Vincula tu repositorio local con uno remoto en GitHub (si aún no lo has hecho) con este comando:</p>
         <pre>git remote add origin https://github.com/tu-usuario/nombre-repositorio.git</pre>
-        <p>Una vez vinculado, puedes subir los cambios al repositorio remoto con:</p>
-        <pre>git push -u origin master</pre>
-        <p>Este comando subirá los commits al branch principal (master o main) de tu repositorio en GitHub.</p>
-        <img src="ruta-de-tu-imagen-push.png" alt="Subir cambios a GitHub (push)">
+        <p>Luego, sube los cambios con el siguiente comando:</p>
+        <pre>git push -u origin nombre-rama</pre>
+        <p>Este comando sube los commits a la rama correspondiente en tu repositorio remoto de GitHub.</p>
+        <img src="images/gh9.png" alt="Subir cambios a GitHub con Git Push">
+        <img src="images/gh10.png" alt="Subir cambios a GitHub con Git Push">
 
-        <h2>5. Crear una nueva rama (branch)</h2>
-        <p>Para trabajar en nuevas funcionalidades sin afectar el código principal, crea una nueva rama con:</p>
-        <pre>git checkout -b nueva-rama</pre>
-        <p>Esto crea y cambia a la nueva rama. Aquí puedes hacer cambios y commits sin modificar la rama principal.</p>
-        <img src="ruta-de-tu-imagen-checkout.png" alt="Crear y cambiar a una nueva rama en Git">
-
-        <h2>6. Hacer merge de las ramas</h2>
-        <p>Cuando hayas terminado de trabajar en tu rama y estés listo para incorporar esos cambios en la rama principal, cambia a la rama principal:</p>
+        <h2>7. Hacer merge de las ramas</h2>
+        <p>Una vez que hayas terminado de trabajar en tu rama y estés listo para combinar los cambios con la rama principal, sigue estos pasos:</p>
+        <p>Cambia a la rama principal:</p>
         <pre>git checkout master</pre>
-        <p>Luego, haz el merge de tu rama con la principal:</p>
-        <pre>git merge nueva-rama</pre>
-        <p>Git unirá los cambios de la nueva rama con la principal. Si hay conflictos, Git te pedirá que los resuelvas manualmente.</p>
+        <p>Haz el merge de tu rama con la principal:</p>
+        <pre>git merge nombre-rama</pre>
+        <p>Git combinará los cambios de tu rama con la principal. Si hay conflictos, Git te pedirá que los resuelvas manualmente.</p>
         <img src="ruta-de-tu-imagen-merge.png" alt="Hacer merge de ramas en Git">
 
-        <h2>7. Subir cambios después del merge</h2>
-        <p>Finalmente, una vez hecho el merge, sube los cambios nuevamente a GitHub con:</p>
+        <h2>8. Subir cambios después del merge</h2>
+        <p>Finalmente, después del merge, sube los cambios nuevamente a GitHub con el siguiente comando:</p>
         <pre>git push origin master</pre>
-        <p>¡Y listo! Tus cambios estarán en el repositorio remoto y habrás finalizado el proceso de trabajo con Git y GitHub.</p>
+        <p>Este comando subirá los cambios combinados a la rama principal de tu repositorio remoto en GitHub.</p>
         <img src="ruta-de-tu-imagen-push-final.png" alt="Subir cambios finales después del merge">
 
     </main>
