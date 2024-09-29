@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tutorial de GitHub: Desde Inicializar hasta Hacer Merge y Push</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #282c34;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #4CAF50;
+        }
+        p {
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #282c34;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial de GitHub</h1>
+        <p>Aprende paso a paso cómo inicializar un repositorio, hacer merge y subir los cambios a GitHub</p>
+    </header>
+
+    <main>
+        <h2>1. Inicializar el repositorio</h2>
+        <p>El primer paso es inicializar un nuevo repositorio en Git. Para ello, utiliza el siguiente comando en la terminal dentro de tu carpeta de proyecto:</p>
+        <pre>git init</pre>
+        <p>Este comando crea una nueva carpeta oculta <code>.git</code> en tu proyecto, donde Git almacenará la información necesaria para el control de versiones.</p>
+        <img src="images/gh1.png" alt="Inicializar repositorio Git">
+
+        <h2>2. Agregar archivos al repositorio</h2>
+        <p>Una vez inicializado, agrega los archivos que quieres que Git rastree:</p>
+        <pre>git add .</pre>
+        <p>Esto añadirá todos los archivos del proyecto al área de preparación (staging area). Si solo deseas agregar un archivo en específico, usa <code>git add nombre_archivo</code>.</p>
+        <img src="images/gh6.png" alt="Agregar archivos a Git">
+
+        <h2>3. Hacer commit</h2>
+        <p>Después de agregar los archivos, el siguiente paso es crear un commit, que representa una "foto" del estado de tu proyecto en ese momento:</p>
+        <pre>git commit -m "Mensaje descriptivo del commit"</pre>
+        <p>Asegúrate de escribir un mensaje claro para identificar qué cambios hiciste en este commit.</p>
+        <img src="ruta-de-tu-imagen-commit.png" alt="Hacer commit en Git">
+
+        <h2>4. Subir a GitHub (Push)</h2>
+        <p>Primero, debes vincular tu repositorio local con uno remoto en GitHub. Para ello, usa el siguiente comando:</p>
+        <pre>git remote add origin https://github.com/tu-usuario/nombre-repositorio.git</pre>
+        <p>Una vez vinculado, puedes subir los cambios al repositorio remoto con:</p>
+        <pre>git push -u origin master</pre>
+        <p>Este comando subirá los commits al branch principal (master o main) de tu repositorio en GitHub.</p>
+        <img src="ruta-de-tu-imagen-push.png" alt="Subir cambios a GitHub (push)">
+
+        <h2>5. Crear una nueva rama (branch)</h2>
+        <p>Para trabajar en nuevas funcionalidades sin afectar el código principal, crea una nueva rama con:</p>
+        <pre>git checkout -b nueva-rama</pre>
+        <p>Esto crea y cambia a la nueva rama. Aquí puedes hacer cambios y commits sin modificar la rama principal.</p>
+        <img src="ruta-de-tu-imagen-checkout.png" alt="Crear y cambiar a una nueva rama en Git">
+
+        <h2>6. Hacer merge de las ramas</h2>
+        <p>Cuando hayas terminado de trabajar en tu rama y estés listo para incorporar esos cambios en la rama principal, cambia a la rama principal:</p>
+        <pre>git checkout master</pre>
+        <p>Luego, haz el merge de tu rama con la principal:</p>
+        <pre>git merge nueva-rama</pre>
+        <p>Git unirá los cambios de la nueva rama con la principal. Si hay conflictos, Git te pedirá que los resuelvas manualmente.</p>
+        <img src="ruta-de-tu-imagen-merge.png" alt="Hacer merge de ramas en Git">
+
+        <h2>7. Subir cambios después del merge</h2>
+        <p>Finalmente, una vez hecho el merge, sube los cambios nuevamente a GitHub con:</p>
+        <pre>git push origin master</pre>
+        <p>¡Y listo! Tus cambios estarán en el repositorio remoto y habrás finalizado el proceso de trabajo con Git y GitHub.</p>
+        <img src="ruta-de-tu-imagen-push-final.png" alt="Subir cambios finales después del merge">
+
+    </main>
+
+    <footer>
+        <p>Creado por [Tu nombre] | Tutorial de GitHub 2024</p>
+    </footer>
+
+</body>
+</html>
